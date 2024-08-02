@@ -26,21 +26,27 @@ void gotoBed();
 bool playAgain();
 
 int main() {
+	// Get the user's name
 	string name;
-
 	cout << "Welcome to your interactive day simulation! \n";
 	cout << "Please enter your name: ";
 	getline(cin, name);
 	cout << "Hello " << name << "! Lets start your day! \n";
 
+	// Start the day
 	startDay();
 
 	return 0;
 }
 
 //Function Definitions
+
+// Function to start the day and handle the option to restart or end the day
 void startDay() {
+	// Call morning routine
 	morningRoutine();
+
+	// Loop to check if the user wants to play again
 	while (true) {
 		if (!playAgain()) {
 			cout << "Thank you for playing! Goodbye!\n";
@@ -51,7 +57,7 @@ void startDay() {
 		}
 	}
 }
-
+// Function for the morning routine
 void morningRoutine() {
 	int choice;
 	cout << "\nIt's morning. What would you like to do?\n";
@@ -97,9 +103,11 @@ void morningRoutine() {
 		return;
 	}
 
+	// Proceed to afternoon routine
 	afternoonRoutine();
 }
 
+// Function for the afternoon routine
 void afternoonRoutine() {
 	int choice;
 	cout << "It's afternoon. What would you like to do?\n";
@@ -113,6 +121,7 @@ void afternoonRoutine() {
 	cout << "Enter your choice: ";
 	cin >> choice;
 
+	// Execute action based on the user's choice
 	if (choice == 1) {
 		haveLunch();
 	}
@@ -141,9 +150,12 @@ void afternoonRoutine() {
 		return;
 	}
 
+	// Proceed to evening routine
 	eveningRoutine();
 }
 
+
+// Function for the evening routine
 void eveningRoutine() {
 	int choice;
 	cout << "\nIt's evening. What would you like to do?\n";
@@ -156,6 +168,7 @@ void eveningRoutine() {
 	cout << "Enter your choice: ";
 	cin >> choice;
 
+	// Execute action based on the user's choice
 	if (choice == 1) {
 		exercise();
 	}
@@ -184,6 +197,7 @@ void eveningRoutine() {
 	}
 }
 
+// Activity Functions
 void exercise() {
 	cout << "You chose to exercise. Enjoy your workout!\n";
 }
@@ -232,6 +246,7 @@ void gotoBed() {
 	cout << "You chose to go to bed. Goodnight!\n";
 }
 
+// Function to ask if the user wants to play again
 bool playAgain() {
 	char choice;
 	cout << "\nWould you like to play again? (y/n): ";
